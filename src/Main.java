@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void checkLeapYear(int year) {
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
@@ -7,18 +9,18 @@ public class Main {
         }
     }
 
-    public static int checkOsYearPhone(int phoneOS, int phoneDeviceYear) {
-        if (phoneOS == 0 && phoneDeviceYear >= 2024) {
+    public static void checkOsYearPhone(int phoneOS, int phoneDeviceYear) {
+        int currentYear = LocalDate.now().getYear();
+        if (phoneOS == 0 && phoneDeviceYear >= currentYear) {
             System.out.println("Установите версию приложения для iOS по ссылке");
-        } else if (phoneOS == 0 && phoneDeviceYear < 2024) {
+        } else if (phoneOS == 0 && phoneDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке ");
         }
-        if (phoneOS == 1 && phoneDeviceYear >= 2024) {
+        if (phoneOS == 1 && phoneDeviceYear >= currentYear) {
             System.out.println("Установите версию приложения для Android по ссылке");
-        } else if (phoneOS == 1 && phoneDeviceYear < 2024) {
+        } else if (phoneOS == 1 && phoneDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке ");
         }
-        return phoneOS;
     }
 
     public static void howManyDaysDelivery(int deliveryDistance) {
@@ -37,7 +39,7 @@ public class Main {
         // Задание 1
         checkLeapYear(2560);
         // Задание 2
-        checkOsYearPhone(1, 2028);
+        checkOsYearPhone(0, 2023);
         // Задание 3
         howManyDaysDelivery(90);
     }
